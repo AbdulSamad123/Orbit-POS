@@ -66,13 +66,8 @@ p {
         </tr>
 
         <tr>
-            <td>Package: <b>1170 CARTONS</b></td>
+            <td>Package: 1170 CARTONS</td>
             <td style="font-size:12px;" colspan="3">Discharge: KARACHI</td>
-        </tr>
-
-        <tr>
-            <td></td>
-            <td style="font-size:12px;" colspan="3">Final Destination: Appraisement Karachi </td>
         </tr>
 
         <tr>

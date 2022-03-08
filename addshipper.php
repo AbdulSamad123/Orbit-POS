@@ -1,3 +1,13 @@
+<?php 
+include "connection.php";
+$obj=new functions();
+$obj->con();
+if(isset($_POST['sub']))
+{
+	$obj->add_shipper($_POST['txtname'],$_POST['txtaddress'],$_POST['txtemail'],$_POST['txtcon'],$_POST['txtntn']);
+}
+
+?>
 <!DOCTYPE html>
 <html>
 <?php include "./header.php"; ?>
@@ -38,34 +48,34 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form role="form">
+              <form autocomplete="off" method="post">
                 <div class="card-body">
                   <div class="form-group">
                     <label>Shipper Name</label>
-                    <input type="text" class="form-control" placeholder=" Enter Shipper name">
+                    <input name="txtname" type="text" class="form-control" placeholder=" Enter Shipper name">
                   </div>
                   <div class="form-group">
                     <label>Shipper address</label>
-                    <input type="text" class="form-control" placeholder=" Enter Shipper address">
+                    <input name="txtaddress" type="text" class="form-control" placeholder=" Enter Shipper address">
                   </div>
                   <div class="form-group">
                     <label >Shipper email</label>
-                    <input type="email" class="form-control" placeholder=" Enter Shipper email">
+                    <input name="txtemail" type="email" class="form-control" placeholder=" Enter Shipper email">
                   </div>
                   <div class="form-group">
-                    <label >Shipper contact</label>
-                    <input type="text" class="form-control" placeholder=" Enter Shipper contact">
+                    <label>Shipper contact</label>
+                    <input name="txtcon" type="text" class="form-control" placeholder=" Enter Shipper contact">
                   </div>
                   <div class="form-group">
                     <label>Shipper ntn</label>
-                    <input type="text" class="form-control" placeholder="Enter Shipper ntn">
+                    <input name="txtntn" type="text" class="form-control" placeholder="Enter Shipper ntn">
                   </div>
                                     
                 </div>
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button name="sub" type="submit" class="btn btn-primary">Submit</button>
                 </div>
               </form>
             </div>

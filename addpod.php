@@ -1,3 +1,13 @@
+<?php 
+include "connection.php";
+$obj=new functions();
+$obj->con();
+if(isset($_POST['sub']))
+{
+	$obj->add_pod($_POST['txtname']);
+}
+
+?>
 <!DOCTYPE html>
 <html>
 <?php include "./header.php"; ?>
@@ -38,17 +48,17 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form role="form">
+              <form autocomplete="off" method="post">
                 <div class="card-body">
                   <div class="form-group">
                     <label>Pod Name</label>
-                    <input type="text" class="form-control" placeholder=" Enter Pod name">
+                    <input name="txtname" type="text" class="form-control" placeholder=" Enter Pod name">
                   </div>                                  
                 </div>
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button name="sub" type="submit" class="btn btn-primary">Submit</button>
                 </div>
               </form>
             </div>

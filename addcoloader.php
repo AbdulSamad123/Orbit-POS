@@ -1,3 +1,13 @@
+<?php 
+include "connection.php";
+$obj=new functions();
+$obj->con();
+if(isset($_POST['sub']))
+{
+	$obj->add_coloader($_POST['txtname'],$_POST['txtaddress'],$_POST['txtemail'],$_POST['txtcon'],$_POST['txtntn']);
+}
+
+?>
 <!DOCTYPE html>
 <html>
 <?php include "./header.php"; ?>
@@ -12,7 +22,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Add Shipper</h1>
+            <h1>Add Co-loader</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -38,34 +48,34 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form role="form">
+              <form autocomplete="off" method="post">
                 <div class="card-body">
                   <div class="form-group">
                     <label>Co-loader Name</label>
-                    <input type="text" class="form-control" placeholder=" Enter Co-loader name">
+                    <input name="txtname" type="text" class="form-control" placeholder=" Enter Co-loader name">
                   </div>
                   <div class="form-group">
                     <label>Co-loader address</label>
-                    <input type="text" class="form-control" placeholder=" Enter Co-loader address">
+                    <input name="txtaddress" type="text" class="form-control" placeholder=" Enter Co-loader address">
                   </div>
                   <div class="form-group">
                     <label >Co-loader email</label>
-                    <input type="email" class="form-control" placeholder=" Enter Co-loader email">
+                    <input name="txtemail" type="email" class="form-control" placeholder=" Enter Co-loader email">
                   </div>
                   <div class="form-group">
                     <label >Co-loader contact</label>
-                    <input type="text" class="form-control" placeholder=" Enter Co-loader contact">
+                    <input name="txtcon" type="text" class="form-control" placeholder=" Enter Co-loader contact">
                   </div>
                   <div class="form-group">
                     <label>Co-loader ntn</label>
-                    <input type="text" class="form-control" placeholder="Enter Co-loader ntn">
+                    <input name="txtntn" type="text" class="form-control" placeholder="Enter Co-loader ntn">
                   </div>
                                     
                 </div>
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button name="sub" type="submit" class="btn btn-primary">Submit</button>
                 </div>
               </form>
             </div>

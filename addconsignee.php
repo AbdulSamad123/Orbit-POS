@@ -1,3 +1,13 @@
+<?php 
+include "connection.php";
+$obj=new functions();
+$obj->con();
+if(isset($_POST['sub']))
+{
+	$obj->add_consignee($_POST['txtname'],$_POST['txtaddress'],$_POST['txtemail'],$_POST['txtcon'],$_POST['txtntn']);
+}
+
+?>
 <!DOCTYPE html>
 <html>
 <?php include "./header.php"; ?>
@@ -38,34 +48,34 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form role="form">
+              <form autocomplete="off" method="post">
                 <div class="card-body">
                   <div class="form-group">
                     <label>Consignee Name</label>
-                    <input type="text" class="form-control" placeholder=" Enter Consignee name">
+                    <input name="txtname" type="text" class="form-control" placeholder=" Enter Consignee name">
                   </div>
                   <div class="form-group">
                     <label>Consignee address</label>
-                    <input type="text" class="form-control" placeholder=" Enter Consignee address">
+                    <input name="txtaddress" type="text" class="form-control" placeholder=" Enter Consignee address">
                   </div>
                   <div class="form-group">
                     <label >Consignee email</label>
-                    <input type="email" class="form-control" placeholder=" Enter Consignee email">
+                    <input name="txtemail" type="email" class="form-control" placeholder=" Enter Consignee email">
                   </div>
                   <div class="form-group">
                     <label >Consignee contact</label>
-                    <input type="text" class="form-control" placeholder=" Enter Consignee contact">
+                    <input name="txtcon" type="text" class="form-control" placeholder=" Enter Consignee contact">
                   </div>
                   <div class="form-group">
                     <label>Consignee ntn</label>
-                    <input type="text" class="form-control" placeholder="Enter Consignee ntn">
+                    <input name="txtntn" type="text" class="form-control" placeholder="Enter Consignee ntn">
                   </div>
                                     
                 </div>
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button name="sub" type="submit" class="btn btn-primary">Submit</button>
                 </div>
               </form>
             </div>

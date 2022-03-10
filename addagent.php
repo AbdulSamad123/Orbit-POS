@@ -1,3 +1,13 @@
+<?php 
+include "connection.php";
+$obj=new functions();
+$obj->con();
+if(isset($_POST['sub']))
+{
+	$obj->add_agent($_POST['txtname'],$_POST['txtaddress'],$_POST['txtemail'],$_POST['txtcon'],$_POST['txtntn']);
+}
+
+?>
 <!DOCTYPE html>
 <html>
 <?php include "./header.php"; ?>
@@ -39,34 +49,34 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form role="form">
+              <form autocomplete="off" method="post">
                 <div class="card-body">
                   <div class="form-group">
                     <label>Agent Name</label>
-                    <input type="text" class="form-control" placeholder=" Enter Agent name">
+                    <input name="txtname" type="text" class="form-control" placeholder=" Enter Agent name">
                   </div>
                   <div class="form-group">
                     <label>Agent address</label>
-                    <input type="text" class="form-control" placeholder=" Enter Agent address">
+                    <input name="txtaddress" type="text" class="form-control" placeholder=" Enter Agent address">
                   </div>
                   <div class="form-group">
                     <label >Agent email</label>
-                    <input type="email" class="form-control" placeholder=" Enter Agent email">
+                    <input name="txtemail" type="email" class="form-control" placeholder=" Enter Agent email">
                   </div>
                   <div class="form-group">
                     <label >Agent contact</label>
-                    <input type="text" class="form-control" placeholder=" Enter Agent contact">
+                    <input name="txtcon" type="text" class="form-control" placeholder=" Enter Agent contact">
                   </div>
                   <div class="form-group">
                     <label>Agent ntn</label>
-                    <input type="text" class="form-control" placeholder="Enter Agent ntn">
+                    <input name="txtntn" type="text" class="form-control" placeholder="Enter Agent ntn">
                   </div>
                                     
                 </div>
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button name="sub" type="submit" class="btn btn-primary">Submit</button>
                 </div>
               </form>
             </div>

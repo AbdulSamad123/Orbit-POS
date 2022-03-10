@@ -1,3 +1,13 @@
+<?php 
+include "connection.php";
+$obj=new functions();
+$obj->con();
+if(isset($_POST['sub']))
+{
+	$obj->add_client($_POST['txtname'],$_POST['txtaddress'],$_POST['txtemail'],$_POST['txtcon'],$_POST['txtntn']);
+}
+
+?>
 <!DOCTYPE html>
 <html>
 <?php include "./header.php"; ?>
@@ -12,7 +22,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Add Shipper</h1>
+            <h1>Add Client</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -38,34 +48,34 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form role="form">
+              <form autocomplete="off" method="post">
                 <div class="card-body">
                   <div class="form-group">
                     <label>Client Name</label>
-                    <input type="text" class="form-control" placeholder=" Enter Client name">
+                    <input name="txtname" type="text" class="form-control" placeholder=" Enter Client name">
                   </div>
                   <div class="form-group">
                     <label>Client address</label>
-                    <input type="text" class="form-control" placeholder=" Enter Client address">
+                    <input name="txtaddress" type="text" class="form-control" placeholder=" Enter Client address">
                   </div>
                   <div class="form-group">
                     <label >Client email</label>
-                    <input type="email" class="form-control" placeholder=" Enter Client email">
+                    <input name="txtemail" type="email" class="form-control" placeholder=" Enter Client email">
                   </div>
                   <div class="form-group">
                     <label >Client contact</label>
-                    <input type="text" class="form-control" placeholder=" Enter Client contact">
+                    <input name="txtcon" type="text" class="form-control" placeholder=" Enter Client contact">
                   </div>
                   <div class="form-group">
                     <label>Client ntn</label>
-                    <input type="text" class="form-control" placeholder="Enter Client ntn">
+                    <input name="txtntn" type="text" class="form-control" placeholder="Enter Client ntn">
                   </div>
                                     
                 </div>
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button name="sub" type="submit" class="btn btn-primary">Submit</button>
                 </div>
               </form>
             </div>

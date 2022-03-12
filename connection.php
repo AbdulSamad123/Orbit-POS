@@ -11,7 +11,7 @@ class functions
     function login( $email, $pass )
     {
         $conn = $_SESSION['conn'];
-        $insert = mysqli_query( $conn, "select * from user where email='".$email."' AND password='".$pass."'" );
+        $insert = mysqli_query( $conn, "select * from user where email='".$email."' AND password='".$pass."'" ) or die(mysql_error());
         $num = mysqli_num_rows( $insert );
         if ($num>0)
        {
@@ -25,7 +25,7 @@ class functions
     {
         $conn = $_SESSION['conn'];
         $id="";
-        $insert = mysqli_query( $conn, "insert into shipper values('$id','$name','$address','$email','$contact','$ntn');" );
+        $insert = mysqli_query( $conn, "insert into shipper values('$id','$name','$address','$email','$contact','$ntn');" ) or die(mysql_error());
         if ( $insert )
         {
             echo "<script> alert('Shipper Added'); </script>";
@@ -36,7 +36,7 @@ class functions
     {
         $conn = $_SESSION['conn'];
         $id="";
-        $insert = mysqli_query( $conn, "insert into consignee values('$id','$name','$address','$email','$contact','$ntn');" );
+        $insert = mysqli_query( $conn, "insert into consignee values('$id','$name','$address','$email','$contact','$ntn');" ) or die(mysql_error());
         if ( $insert )
         {
             echo "<script> alert('Consignee Added'); </script>";
@@ -47,7 +47,7 @@ class functions
     {
         $conn = $_SESSION['conn'];
         $id="";
-        $insert = mysqli_query( $conn, "insert into agent values('$id','$name','$address','$email','$contact','$ntn');" );
+        $insert = mysqli_query( $conn, "insert into agent values('$id','$name','$address','$email','$contact','$ntn');" ) or die(mysql_error());
         if ( $insert )
         {
             echo "<script> alert('Agent Added'); </script>";
@@ -58,7 +58,7 @@ class functions
     {
         $conn = $_SESSION['conn'];
         $id="";
-        $insert = mysqli_query( $conn, "insert into client values('$id','$name','$address','$email','$contact','$ntn');" );
+        $insert = mysqli_query( $conn, "insert into client values('$id','$name','$address','$email','$contact','$ntn');" ) or die(mysql_error());
         if ( $insert )
         {
             echo "<script> alert('Agent Added'); </script>";
@@ -69,7 +69,7 @@ class functions
     {
         $conn = $_SESSION['conn'];
         $id="";
-        $insert = mysqli_query( $conn, "insert into coloader values('$id','$name','$address','$email','$contact','$ntn');" );
+        $insert = mysqli_query( $conn, "insert into coloader values('$id','$name','$address','$email','$contact','$ntn');" ) or die(mysql_error());
         if ( $insert )
         {
             echo "<script> alert('Coloader Added'); </script>";
@@ -80,7 +80,7 @@ class functions
     {
         $conn = $_SESSION['conn'];
         $id="";
-        $insert = mysqli_query( $conn, "insert into pol values('$id','$name');" );
+        $insert = mysqli_query( $conn, "insert into pol values('$id','$name');" ) or die(mysql_error());
         if ( $insert )
         {
             echo "<script> alert('Pol Added'); </script>";
@@ -91,7 +91,7 @@ class functions
     {
         $conn = $_SESSION['conn'];
         $id="";
-        $insert = mysqli_query( $conn, "insert into pod values('$id','$name');" );
+        $insert = mysqli_query( $conn, "insert into pod values('$id','$name');" ) or die(mysql_error());
         if ( $insert )
         {
             echo "<script> alert('Pod Added'); </script>";
@@ -102,12 +102,23 @@ class functions
     {
         $conn = $_SESSION['conn'];
         $id="";
-        $insert = mysqli_query( $conn, "insert into currency values('$id','$name');" );
+        $insert = mysqli_query( $conn, "insert into currency values('$id','$name');" ) or die(mysql_error());
         if ( $insert )
         {
             echo "<script> alert('Currency Added'); </script>";
         }
     }
     
+    function add_booking($shipper,$client,$consignee,$pol,$pod,$cuttof,$eta,$etd,$vessel,$voyage,$coloader,$agent,$buying,$selling,$roe,$currency,$profit,$mode,$sales_person,$destufing_yard,$container_number,$mbl_status,$hbl_status,$submission_manifest,$arrival_notice,$collection_do,$type,$hbl,$mbl,$volume,$gross_weight,$net_weight,$agreed_rate,$exwork,$ocean_freight,$bl,$do,$thc,$round_amount,$agree_rate_coloader,$dn_charges,$of_charges,$thc_coloader,$docs_charges,$net_profit)
+    {
+        $conn = $_SESSION['conn'];
+        $id="";
+        $insert = mysqli_query( $conn, "insert into booking values('$id','$shipper','$client','$consignee','$pol','$pod','$cuttof','$eta','$etd','$vessel','$voyage','$coloader','$agent','$buying','$selling','$roe','$currency','$profit','$mode','$sales_person','$destufing_yard','$container_number','$mbl_status','$hbl_status','$submission_manifest','$arrival_notice','$collection_do','$type','$hbl','$mbl','$volume','$gross_weight','$net_weight','$agreed_rate','$exwork','$ocean_freight','$bl','$do','$thc','$round_amount','$agree_rate_coloader','$dn_charges','$of_charges','$thc_coloader','$docs_charges','$net_profit');" ) or die(mysql_error());
+        if ( $insert )
+        {
+            echo "<script> alert('Booking Added'); </script>";
+        }
+    }
+
  }
 ?>

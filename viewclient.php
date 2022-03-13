@@ -1,3 +1,8 @@
+<?php 
+include "connection.php";
+$obj=new functions();
+$obj->con();
+?>
 <!DOCTYPE html>
 <html>
 <?php include "./header.php"; ?>
@@ -40,6 +45,7 @@
                 <tr>
                   <th>S.No</th>
                   <th>Client Name</th>
+                  <th>Address</th>
                   <th>Contact</th>
                   <th>E-mail</th>
                   <th>Ntn</th>
@@ -47,12 +53,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td>Other browsers</td>
-                  <td>All others</td>
-                  <td>-</td>
-                  <td>-</td>
-                </tr>
+                 <?php $obj->view_client();?>
                 </tbody>
               </table>
             </div>

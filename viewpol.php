@@ -1,3 +1,8 @@
+<?php 
+include "connection.php";
+$obj=new functions();
+$obj->con();
+?>
 <!DOCTYPE html>
 <html>
 <?php include "./header.php"; ?>
@@ -43,10 +48,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td>Other browsers</td>
-                  <td>All others</td>
-                </tr>
+                <?php $obj->view_pol();?>
                 </tbody>
               </table>
             </div>

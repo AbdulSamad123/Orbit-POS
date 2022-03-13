@@ -51,47 +51,32 @@ if(isset($_POST['sub']))
                 <div class="card-body">
                   <div class="form-group">
                     <label for="cars">Shipper</label>
-                    <select name="shipper" type="text" class="form-control" id="cars" name="cars">
-                      <option value="volvo">Volvo</option>
-                      <option value="saab">Saab</option>
-                      <option value="fiat">Fiat</option>
-                      <option value="audi">Audi</option>
+                    <select name="shipper" type="text" class="form-control">
+                        <?php $obj->shipper();?>
                     </select>
                   </div>  
                   <div class="form-group">
                     <label for="cars">Client</label>
-                    <select name="client" type="text" class="form-control" id="cars" name="cars">
-                      <option value="volvo">Volvo</option>
-                      <option value="saab">Saab</option>
-                      <option value="fiat">Fiat</option>
-                      <option value="audi">Audi</option>
+                    <select name="client" type="text" class="form-control">
+                      <?php $obj->client();?>
                     </select>
                   </div>
                   <div class="form-group">
                     <label for="cars">Consignee</label>
-                    <select name="consignee" type="text" class="form-control" id="cars" name="cars">
-                      <option value="volvo">Volvo</option>
-                      <option value="saab">Saab</option>
-                      <option value="fiat">Fiat</option>
-                      <option value="audi">Audi</option>
+                    <select name="consignee" type="text" class="form-control">
+                        <?php $obj->consignee();?>
                     </select>
                   </div>
                   <div class="form-group">
                     <label for="cars">Port of Loading</label>
-                    <select name="pol" type="text" class="form-control" id="cars" name="cars">
-                      <option value="volvo">Volvo</option>
-                      <option value="saab">Saab</option>
-                      <option value="fiat">Fiat</option>
-                      <option value="audi">Audi</option>
+                    <select name="pol" type="text" class="form-control">
+                        <?php $obj->pol();?>
                     </select>
                   </div>
                   <div class="form-group">
                     <label for="cars">Port of Discharge</label>
-                    <select name="pod" type="text" class="form-control" id="cars" name="cars">
-                      <option value="volvo">Volvo</option>
-                      <option value="saab">Saab</option>
-                      <option value="fiat">Fiat</option>
-                      <option value="audi">Audi</option>
+                    <select name="pod" type="text" class="form-control">
+                      <?php $obj->pod();?>
                     </select>
                   </div>
                   <div class="form-group">
@@ -116,20 +101,14 @@ if(isset($_POST['sub']))
                   </div>
                   <div class="form-group">
                     <label for="cars">Co Loader</label>
-                    <select name="coloader" type="text" class="form-control" id="cars" name="cars">
-                      <option value="volvo">Volvo</option>
-                      <option value="saab">Saab</option>
-                      <option value="fiat">Fiat</option>
-                      <option value="audi">Audi</option>
+                    <select name="coloader" type="text" class="form-control">
+                        <?php $obj->coloader();?>
                     </select>
                   </div>
                   <div class="form-group">
                     <label for="cars">Agent</label>
-                    <select name="agent" type="text" class="form-control" id="cars" name="cars">
-                      <option value="volvo">Volvo</option>
-                      <option value="saab">Saab</option>
-                      <option value="fiat">Fiat</option>
-                      <option value="audi">Audi</option>
+                    <select name="agent" type="text" class="form-control">
+                       <?php $obj->agent();?>
                     </select>
                   </div>
                   <div class="form-group">
@@ -146,11 +125,8 @@ if(isset($_POST['sub']))
                   </div>
                   <div class="form-group">
                     <label for="cars">Currency</label>
-                    <select name="currency" type="text" class="form-control" id="cars" name="cars">
-                      <option value="volvo">Volvo</option>
-                      <option value="saab">Saab</option>
-                      <option value="fiat">Fiat</option>
-                      <option value="audi">Audi</option>
+                    <select name="currency" type="text" class="form-control">
+                      <?php $obj->currency();?>
                     </select>
                   </div>
                   <div class="form-group">

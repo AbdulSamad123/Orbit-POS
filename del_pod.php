@@ -2,6 +2,7 @@
 include "connection.php";
 $obj=new functions();
 $obj->con();
+$obj->del_pod($_GET['id']);
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,12 +18,12 @@ $obj->con();
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Currency Detail</h1>
+            <h1>Pod Detail</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-                <a href="./addcurrency.php" class="breadcrumb-item">
-                    <i class="far fa-plus-square nav-icon"> Add Currency</i>                    
+                <a href="./addpod.php" class="breadcrumb-item">
+                    <i class="far fa-plus-square nav-icon"> Add Pod</i>                    
                 </a>
             </ol>
           </div>
@@ -44,11 +45,11 @@ $obj->con();
                 <thead>
                 <tr>
                   <th>S.No</th>
-                  <th>Currency Name</th>
+                  <th>Pod Name</th>
                 </tr>
                 </thead>
                 <tbody>
-                <?php $obj->view_currency();?>
+                <?php $obj->view_pod();?>
                 </tbody>
               </table>
             </div>
@@ -62,5 +63,4 @@ $obj->con();
     </section>
     <!-- /.content -->
   </div>
-  <!-- /.content-wrapper -->
   <?php include "./footer.php"; ?>

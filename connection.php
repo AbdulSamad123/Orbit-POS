@@ -270,6 +270,27 @@ class functions
         }
     }
 
+    function view_booking()
+    {
+        $conn = $_SESSION['conn'];
+        $sel = mysqli_query( $conn, 'select * from booking' );
+        $num = mysqli_num_rows( $sel );
+        for ( $i = 1; $i <= $num; $i++ )
+        {
+            $row = mysqli_fetch_array( $sel );
+            echo '<tr>';            
+            echo '<td>' . $i . '</td>';
+            echo '<td>' . $row[0] . '</td>';
+            echo '<td>' . $row['mbl'] . '</td>';
+            echo '<td>' . $row[29] . '</td>';
+            echo '<td>' . $row[30] . '</td>';
+            echo '<td>' . $row[31] . '</td>';
+            echo '<td>' . $row[32] . '</td>';
+            echo "<td class='text-warning'>" . '<a href="update_booking.php?id='.$row[0].'"><i class="fas fa-pen"></i> </a> | <a href="del_booking.php?id='.$row[0].'"> <i class="fas fa-trash"></i> </a>' . '</td>';
+            echo '</tr>';
+        }
+    } 
+
     function shipper()
 	{
 		$conn=$_SESSION['conn'];
@@ -466,6 +487,209 @@ class functions
         {
             echo "<script> alert('Data deleted');</script>";
             header("location:viewcurrency.php");
+        }
+                
+    }
+
+    function del_booking()
+    {
+        $conn = $_SESSION['conn'];
+        $id= $_GET['id'];
+        $select = mysqli_query($conn,"delete from booking where id='$id'");
+        if ($select)
+        {
+            echo "<script> alert('Data deleted');</script>";
+            header("location:viewbooking.php");
+        }
+                
+    }
+
+    function update_shipper($name,$address,$email,$contact,$ntn)
+    {
+        $conn = $_SESSION['conn'];
+        $id= $_GET['id'];
+        $name = $_POST['txtname'];
+        $address = $_POST['txtaddress'];
+        $email = $_POST['txtemail'];
+        $contact = $_POST['txtcon'];
+        $ntn = $_POST['txtntn'];
+        $insert = mysqli_query( $conn, "update shipper set name='".$name."', address='".$address."', email='".$email."',contact='".$contact."',ntn='".$ntn."'  where id='".$id."'" );
+        if ($insert)
+        {
+            echo "<script> alert('Data Updated');</script>";
+            echo "<script> window.location.assign('viewshipper.php');</script>";
+        }
+                
+    }
+
+    function update_agent($name,$address,$email,$contact,$ntn)
+    {
+        $conn = $_SESSION['conn'];
+        $id= $_GET['id'];
+        $name = $_POST['txtname'];
+        $address = $_POST['txtaddress'];
+        $email = $_POST['txtemail'];
+        $contact = $_POST['txtcon'];
+        $ntn = $_POST['txtntn'];
+        $insert = mysqli_query( $conn, "update agent set name='".$name."', address='".$address."', email='".$email."',contact='".$contact."',ntn='".$ntn."'  where id='".$id."'" );
+        if ($insert)
+        {
+            echo "<script> alert('Data Updated');</script>";
+            echo "<script> window.location.assign('viewagent.php');</script>";
+        }
+                
+    }
+
+    function update_consignee($name,$address,$email,$contact,$ntn)
+    {
+        $conn = $_SESSION['conn'];
+        $id= $_GET['id'];
+        $name = $_POST['txtname'];
+        $address = $_POST['txtaddress'];
+        $email = $_POST['txtemail'];
+        $contact = $_POST['txtcon'];
+        $ntn = $_POST['txtntn'];
+        $insert = mysqli_query( $conn, "update consignee set name='".$name."', address='".$address."', email='".$email."',contact='".$contact."',ntn='".$ntn."'  where id='".$id."'" );
+        if ($insert)
+        {
+            echo "<script> alert('Data Updated');</script>";
+            echo "<script> window.location.assign('viewconsignee.php');</script>";
+        }
+                
+    }
+
+    function update_client($name,$address,$email,$contact,$ntn)
+    {
+        $conn = $_SESSION['conn'];
+        $id= $_GET['id'];
+        $name = $_POST['txtname'];
+        $address = $_POST['txtaddress'];
+        $email = $_POST['txtemail'];
+        $contact = $_POST['txtcon'];
+        $ntn = $_POST['txtntn'];
+        $insert = mysqli_query( $conn, "update client set name='".$name."', address='".$address."', email='".$email."',contact='".$contact."',ntn='".$ntn."'  where id='".$id."'" );
+        if ($insert)
+        {
+            echo "<script> alert('Data Updated');</script>";
+            echo "<script> window.location.assign('viewclient.php');</script>";
+        }
+                
+    }
+
+    function update_coloader($name,$address,$email,$contact,$ntn)
+    {
+        $conn = $_SESSION['conn'];
+        $id= $_GET['id'];
+        $name = $_POST['txtname'];
+        $address = $_POST['txtaddress'];
+        $email = $_POST['txtemail'];
+        $contact = $_POST['txtcon'];
+        $ntn = $_POST['txtntn'];
+        $insert = mysqli_query( $conn, "update coloader set name='".$name."', address='".$address."', email='".$email."',contact='".$contact."',ntn='".$ntn."'  where id='".$id."'" );
+        if ($insert)
+        {
+            echo "<script> alert('Data Updated');</script>";
+            echo "<script> window.location.assign('viewcoloader.php');</script>";
+        }
+                
+    }
+
+    function update_pol($name)
+    {
+        $conn = $_SESSION['conn'];
+        $id= $_GET['id'];
+        $name = $_POST['txtname'];
+        $insert = mysqli_query( $conn, "update pol set name='".$name."' where id='".$id."'" );
+        if ($insert)
+        {
+            echo "<script> alert('Data Updated');</script>";
+            echo "<script> window.location.assign('viewpol.php');</script>";
+        }
+                
+    }
+
+    function update_pod($name)
+    {
+        $conn = $_SESSION['conn'];
+        $id= $_GET['id'];
+        $name = $_POST['txtname'];
+        $insert = mysqli_query( $conn, "update pod set name='".$name."' where id='".$id."'" );
+        if ($insert)
+        {
+            echo "<script> alert('Data Updated');</script>";
+            echo "<script> window.location.assign('viewpod.php');</script>";
+        }
+                
+    }
+
+    function update_currency($name)
+    {
+        $conn = $_SESSION['conn'];
+        $id= $_GET['id'];
+        $name = $_POST['txtname'];
+        $insert = mysqli_query( $conn, "update currency set name='".$name."' where id='".$id."'" );
+        if ($insert)
+        {
+            echo "<script> alert('Data Updated');</script>";
+            echo "<script> window.location.assign('viewcurrency.php');</script>";
+        }
+                
+    }
+
+    function update_booking($shipper,$client,$consignee,$pol,$pod,$cuttof,$eta,$etd,$vessel,$voyage,$coloader,$agent,$buying,$selling,$roe)
+    {
+        $conn = $_SESSION['conn'];
+        $id= $_GET['id'];
+        $shipper=$_POST['shipper'];
+        $client=$_POST['client'];
+        $consignee=$_POST['consignee'];
+        $pol=$_POST['pol'];
+        $pod=$_POST['pod'];
+        $cuttof=$_POST['cutt'];
+        $eta=$_POST['eta'];
+        $etd=$_POST['etd'];
+        $vessel=$_POST['vessel'];
+        $voyage=$_POST['voyage'];
+        $coloader=$_POST['coloader'];
+        $agent=$_POST['agent'];
+        $buying=$_POST['buying'];
+        $selling=$_POST['selling'];
+        $roe=$_POST['roe'];
+        // $currency=$_POST['currency'];
+        // $profit=$_POST['profit'];
+        // $mode=$_POST['mode'];
+        // $sales_person=$_POST['sales_person'];
+        // $destufing_yard=$_POST['yard'];
+        // $container_number=$_POST['con_num'];
+        // $mbl_status=$_POST['mbl_telex'];
+        // $hbl_status=$_POST['hbl_telex'];
+        // $submission_manifest=$_POST['submission_manifest'];
+        // $arrival_notice=$_POST['arrival_notice'];
+        // $collection_do=$_POST['do'];
+        // $type=$_POST['type'];
+        // $hbl=$_POST['hbl_no'];
+        // $mbl=$_POST['mbl_no'];
+        // $volume=$_POST['volume'];
+        // $gross_weight=$_POST['gross'];
+        // $net_weight=$_POST['net'];
+        // $agreed_rate=$_POST['agreed_rate'];
+        // $exwork=$_POST['exwork'];
+        // $ocean_freight=$_POST['of'];
+        // $bl=$_POST['bl'];
+        // $do=$_POST['do_charges'];
+        // $thc=$_POST['thc'];
+        // $round_amount=$_POST['round'];
+        // $agree_rate_coloader=$_POST['coloader_rate'];
+        // $dn_charges=$_POST['dn'];
+        // $of_charges=$_POST['of_charges'];
+        // $thc_coloader=$_POST['agree_thc'];
+        // $docs_charges=$_POST['doc_charges'];
+        // $net_profit=$_POST['netprofit'];
+        $insert = mysqli_query( $conn, "update booking set shipper='".$shipper."', client='".$client."', consignee='".$consignee."',pol='".$pol."',pod='".$pod."',cuttof='".$cuttof."',eta='".$eta."', etd='".$etd."',vessel='".$vessel."',voyage='".$voyage."',coloader='".$coloader."', agent='".$agent."', buying='".$buying."',selling='".$selling."',roe='".$roe."' where id='".$id."'");
+        if ($insert)
+        {
+            echo "<script> alert('Data Updated');</script>";
+            echo "<script> window.location.assign('viewbooking.php');</script>";
         }
                 
     }

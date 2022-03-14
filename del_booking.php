@@ -2,6 +2,7 @@
 include "connection.php";
 $obj=new functions();
 $obj->con();
+$obj->del_booking($_GET['id']);
 ?>
 <!DOCTYPE html>
 <html>

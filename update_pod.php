@@ -2,9 +2,13 @@
 include "connection.php";
 $obj=new functions();
 $obj->con();
+$conn = $_SESSION['conn'];
+$id = $_GET['id'];
+$select = mysqli_query( $conn, "select * from pod where id='$id'" );
+$row = mysqli_fetch_array( $select );
 if(isset($_POST['sub']))
 {
-	$obj->add_pod($_POST['txtname']);
+    $obj -> update_pod($_POST['txtname']);
 }
 
 ?>
@@ -22,12 +26,12 @@ if(isset($_POST['sub']))
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Add Port of Discharge</h1>
+            <h1>Add Port of Loading</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
                 <a href="./viewpod.php" class="breadcrumb-item">
-                    <i class="far fa-eye nav-icon"> View Pod</i>                    
+                    <i class="far fa-eye nav-icon"> view pod</i>                    
                 </a>
             </ol>
           </div>
@@ -44,15 +48,19 @@ if(isset($_POST['sub']))
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Pod Detail</h3>
+                <h3 class="card-title">pod Detail</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
               <form autocomplete="off" method="post">
                 <div class="card-body">
                   <div class="form-group">
-                    <label>Pod Name</label>
-                    <input name="txtname" type="text" class="form-control" placeholder=" Enter Pod name">
+                    <label>Id No</label>
+                    <input name="id" type="text" value="<?php echo $row[0];?>" class="form-control" readonly>
+                  </div>
+                  <div class="form-group">
+                    <label>pod Name</label>
+                    <input name="txtname" type="text" value="<?php echo $row[1];?>" class="form-control" placeholder=" Enter pod name">
                   </div>                                  
                 </div>
                 <!-- /.card-body -->
@@ -72,4 +80,3 @@ if(isset($_POST['sub']))
     <!-- /.content -->
   </div>
   <?php include "./footer.php"; ?>
- 

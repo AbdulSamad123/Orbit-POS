@@ -48,9 +48,9 @@ $obj->con();
                   <th>Mbl No</th>
                   <th>Hbl No</th>
                   <th>Volume</th>
-                  <th>Gross Weight</th>
                   <th>Net Weight</th>
-                  <th>Action</th>                  
+                  <th>Action</th> 
+                  <th>others</th> 
                 </tr>
                 </thead>
                 <tbody>

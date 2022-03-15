@@ -284,9 +284,9 @@ class functions
             echo '<td>' . $row['mbl'] . '</td>';
             echo '<td>' . $row[29] . '</td>';
             echo '<td>' . $row[30] . '</td>';
-            echo '<td>' . $row[31] . '</td>';
             echo '<td>' . $row[32] . '</td>';
             echo "<td class='text-warning'>" . '<a href="update_booking.php?id='.$row[0].'"><i class="fas fa-pen"></i> </a> | <a href="del_booking.php?id='.$row[0].'"> <i class="fas fa-trash"></i> </a>' . '</td>';
+            echo "<td class='text-warning'>" . '<a href="update_booking.php?id='.$row[0].'"><i class="fas fa-file-invoice"></i> </a> | <a href="del_booking.php?id='.$row[0].'"> <i class="fas fa-trash"></i> </a>' . '</td>';
             echo '</tr>';
         }
     } 
@@ -299,10 +299,10 @@ class functions
 		for($i=1; $i<=$num; $i++)
 		{
 			$row=mysqli_fetch_array($sel);
+            extract($row);
 			echo "<option value=$row[0]>" .$row[1]. "</option>";					
 		}
     }
-
     function consignee()
 	{
 		$conn=$_SESSION['conn'];
@@ -636,7 +636,7 @@ class functions
                 
     }
 
-    function update_booking($shipper,$client,$consignee,$pol,$pod,$cuttof,$eta,$etd,$vessel,$voyage,$coloader,$agent,$buying,$selling,$roe)
+    function update_booking($shipper,$client,$consignee,$pol,$pod,$cuttof,$eta,$etd,$vessel,$voyage,$coloader,$agent,$buying,$selling,$roe,$currency,$profit,$mode,$sales_person,$destufing_yard,$container_number,$mbl_status,$hbl_status,$submission_manifest,$arival_notice,$collection_do,$type,$hbl,$mbl,$volume,$gross_weight,$net_weight,$agreed_rate,$exwork,$ocean_freight,$bl,$do,$thc,$round_amount,$agree_rate_coloader,$dn_charges,$of_charges,$thc_coloader,$docs_charges,$net_profit)
     {
         $conn = $_SESSION['conn'];
         $id= $_GET['id'];
@@ -655,37 +655,37 @@ class functions
         $buying=$_POST['buying'];
         $selling=$_POST['selling'];
         $roe=$_POST['roe'];
-        // $currency=$_POST['currency'];
-        // $profit=$_POST['profit'];
-        // $mode=$_POST['mode'];
-        // $sales_person=$_POST['sales_person'];
-        // $destufing_yard=$_POST['yard'];
-        // $container_number=$_POST['con_num'];
-        // $mbl_status=$_POST['mbl_telex'];
-        // $hbl_status=$_POST['hbl_telex'];
-        // $submission_manifest=$_POST['submission_manifest'];
-        // $arrival_notice=$_POST['arrival_notice'];
-        // $collection_do=$_POST['do'];
-        // $type=$_POST['type'];
-        // $hbl=$_POST['hbl_no'];
-        // $mbl=$_POST['mbl_no'];
-        // $volume=$_POST['volume'];
-        // $gross_weight=$_POST['gross'];
-        // $net_weight=$_POST['net'];
-        // $agreed_rate=$_POST['agreed_rate'];
-        // $exwork=$_POST['exwork'];
-        // $ocean_freight=$_POST['of'];
-        // $bl=$_POST['bl'];
-        // $do=$_POST['do_charges'];
-        // $thc=$_POST['thc'];
-        // $round_amount=$_POST['round'];
-        // $agree_rate_coloader=$_POST['coloader_rate'];
-        // $dn_charges=$_POST['dn'];
-        // $of_charges=$_POST['of_charges'];
-        // $thc_coloader=$_POST['agree_thc'];
-        // $docs_charges=$_POST['doc_charges'];
-        // $net_profit=$_POST['netprofit'];
-        $insert = mysqli_query( $conn, "update booking set shipper='".$shipper."', client='".$client."', consignee='".$consignee."',pol='".$pol."',pod='".$pod."',cuttof='".$cuttof."',eta='".$eta."', etd='".$etd."',vessel='".$vessel."',voyage='".$voyage."',coloader='".$coloader."', agent='".$agent."', buying='".$buying."',selling='".$selling."',roe='".$roe."' where id='".$id."'");
+        $currency=$_POST['currency'];
+        $profit=$_POST['profit'];
+        $mode=$_POST['mode'];
+        $sales_person=$_POST['sales_person'];
+        $destufing_yard=$_POST['destufing_yard'];
+        $container_number=$_POST['container_number'];
+        $mbl_status=$_POST['mbl_status'];
+        $hbl_status=$_POST['hbl_status'];
+        $submission_manifest=$_POST['submission_manifest'];
+        $arrival_notice=$_POST['arival_notice'];
+        $collection_do=$_POST['collection_do'];
+        $type=$_POST['type'];
+        $hbl=$_POST['hbl'];
+        $mbl=$_POST['mbl'];
+        $volume=$_POST['volume'];
+        $gross_weight=$_POST['gross_weight'];
+        $net_weight=$_POST['net_weight'];
+        $agreed_rate=$_POST['agreed_rate'];
+        $exwork=$_POST['exwork'];
+        $ocean_freight=$_POST['ocean_freight'];
+        $bl=$_POST['bl'];
+        $do=$_POST['do'];
+        $thc=$_POST['thc'];
+        $round_amount=$_POST['round_amount'];
+        $agree_rate_coloader=$_POST['agree_rate_coloader'];
+        $dn_charges=$_POST['dn_charges'];
+        $of_charges=$_POST['of_charges'];
+        $thc_coloader=$_POST['thc_coloader'];
+        $docs_charges=$_POST['docs_charges'];
+        $net_profit=$_POST['net_profit'];
+        $insert = mysqli_query( $conn, "update booking set shipper='".$shipper."', client='".$client."', consignee='".$consignee."',pol='".$pol."',pod='".$pod."',cuttof='".$cuttof."',eta='".$eta."', etd='".$etd."',vessel='".$vessel."',voyage='".$voyage."',coloader='".$coloader."', agent='".$agent."', buying='".$buying."',selling='".$selling."',roe='".$roe."',currency='".$currency."', profit='".$profit."', mode='".$mode."',sales_person='".$sales_person."',destufing_yard='".$destufing_yard."',container_number='".$container_number."', mbl_status='".$mbl_status."', hbl_status='".$hbl_status."',submission_manifest='".$submission_manifest."',arival_notice='".$arival_notice."' ,collection_do='".$collection_do."', type='".$type."', hbl='".$hbl."',mbl='".$mbl."',volume='".$volume."' ,gross_weight='".$gross_weight."', net_weight='".$net_weight."', agreed_rate='".$agreed_rate."',exwork='".$exwork."',ocean_freight='".$ocean_freight."',bl='".$bl."', do='".$do."', thc='".$thc."',round_amount='".$round_amount."',agree_rate_coloader='".$agree_rate_coloader."',dn_charges='".$dn_charges."',of_charges='".$of_charges."', thc_coloader='".$thc_coloader."',docs_charges='".$docs_charges."',net_profit='".$net_profit."' where id='".$id."'");
         if ($insert)
         {
             echo "<script> alert('Data Updated');</script>";
@@ -693,6 +693,8 @@ class functions
         }
                 
     }
+
+    
 
  }
 ?>

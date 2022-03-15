@@ -52,30 +52,35 @@ if(isset($_POST['sub']))
                   <div class="form-group">
                     <label for="cars">Shipper</label>
                     <select name="shipper" type="text" class="form-control">
+                        <option value="0">Select Shipper</option>
                         <?php $obj->shipper();?>
                     </select>
                   </div>  
                   <div class="form-group">
                     <label for="cars">Client</label>
                     <select name="client" type="text" class="form-control">
+                      <option value="0">Select Client</option>
                       <?php $obj->client();?>
                     </select>
                   </div>
                   <div class="form-group">
                     <label for="cars">Consignee</label>
                     <select name="consignee" type="text" class="form-control">
+                       <option value="0">Select Consignee</option>
                         <?php $obj->consignee();?>
                     </select>
                   </div>
                   <div class="form-group">
                     <label for="cars">Port of Loading</label>
                     <select name="pol" type="text" class="form-control">
+                        <option value="0">Select Pol</option>
                         <?php $obj->pol();?>
                     </select>
                   </div>
                   <div class="form-group">
                     <label for="cars">Port of Discharge</label>
                     <select name="pod" type="text" class="form-control">
+                      <option value="0">Select Pod</option>
                       <?php $obj->pod();?>
                     </select>
                   </div>
@@ -102,12 +107,14 @@ if(isset($_POST['sub']))
                   <div class="form-group">
                     <label for="cars">Co Loader</label>
                     <select name="coloader" type="text" class="form-control">
+                        <option value="0">Select CoLoader</option>
                         <?php $obj->coloader();?>
                     </select>
                   </div>
                   <div class="form-group">
                     <label for="cars">Agent</label>
                     <select name="agent" type="text" class="form-control">
+                       <option value="0">Select Agent</option>
                        <?php $obj->agent();?>
                     </select>
                   </div>
@@ -126,6 +133,7 @@ if(isset($_POST['sub']))
                   <div class="form-group">
                     <label for="cars">Currency</label>
                     <select name="currency" type="text" class="form-control">
+                      <option value="0">Select Currency</option>
                       <?php $obj->currency();?>
                     </select>
                   </div>
@@ -136,8 +144,9 @@ if(isset($_POST['sub']))
                   <div class="form-group">
                     <label for="cars">Shipping Mode</label>
                     <select name="mode" type="text" class="form-control" id="cars" name="cars">
-                      <option value="volvo">By Air</option>
-                      <option value="saab">By Sea</option>
+                      <option value="0">Select Mode</option>
+                      <option value="air">By Air</option>
+                      <option value="sea">By Sea</option>
                     </select>
                   </div>
                   <div class="form-group">
@@ -175,8 +184,9 @@ if(isset($_POST['sub']))
                   <div class="form-group">
                     <label for="cars">Shipping Type</label>
                     <select name="type" type="text" class="form-control" id="cars" name="cars">
-                      <option value="volvo">Import</option>
-                      <option value="saab">Export</option>
+                      <option value="0">Select Type</option>
+                      <option value="import">Import</option>
+                      <option value="export">Export</option>
                     </select>
                   </div>
                   <div class="form-group">

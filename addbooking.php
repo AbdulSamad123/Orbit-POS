@@ -26,7 +26,7 @@ if(isset($_POST['sub']))
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <a href="./viewbooking.php" class="breadcrumb-item">
-                <i class="far fa-eye nav-icon"> view Booking</i>                    
+                <i class="far fa-eye nav-icon"> View Booking</i>                    
             </a>
             </ol>
           </div>
@@ -51,35 +51,35 @@ if(isset($_POST['sub']))
                 <div class="card-body">
                   <div class="form-group">
                     <label for="cars">Shipper</label>
-                    <select name="shipper" type="text" class="form-control">
+                    <select name="shipper" type="text" id="choseshipper" class="form-control">
                         <option value="0">Select Shipper</option>
                         <?php $obj->shipper();?>
                     </select>
                   </div>  
                   <div class="form-group">
                     <label for="cars">Client</label>
-                    <select name="client" type="text" class="form-control">
+                    <select name="client" type="text" id="choseclient" class="form-control">
                       <option value="0">Select Client</option>
                       <?php $obj->client();?>
                     </select>
                   </div>
                   <div class="form-group">
                     <label for="cars">Consignee</label>
-                    <select name="consignee" type="text" class="form-control">
+                    <select name="consignee" type="text" id="choseconsignee" class="form-control">
                        <option value="0">Select Consignee</option>
                         <?php $obj->consignee();?>
                     </select>
                   </div>
                   <div class="form-group">
                     <label for="cars">Port of Loading</label>
-                    <select name="pol" type="text" class="form-control">
+                    <select name="pol" type="text" id="chosepol" class="form-control">
                         <option value="0">Select Pol</option>
                         <?php $obj->pol();?>
                     </select>
                   </div>
                   <div class="form-group">
                     <label for="cars">Port of Discharge</label>
-                    <select name="pod" type="text" class="form-control">
+                    <select name="pod" type="text" id="chosepod" class="form-control">
                       <option value="0">Select Pod</option>
                       <?php $obj->pod();?>
                     </select>
@@ -106,14 +106,14 @@ if(isset($_POST['sub']))
                   </div>
                   <div class="form-group">
                     <label for="cars">Co Loader</label>
-                    <select name="coloader" type="text" class="form-control">
+                    <select name="coloader" type="text" id="chosecoloader" class="form-control">
                         <option value="0">Select CoLoader</option>
                         <?php $obj->coloader();?>
                     </select>
                   </div>
                   <div class="form-group">
                     <label for="cars">Agent</label>
-                    <select name="agent" type="text" class="form-control">
+                    <select name="agent" type="text" id="choseagent" class="form-control">
                        <option value="0">Select Agent</option>
                        <?php $obj->agent();?>
                     </select>
@@ -132,7 +132,7 @@ if(isset($_POST['sub']))
                   </div>
                   <div class="form-group">
                     <label for="cars">Currency</label>
-                    <select name="currency" type="text" class="form-control">
+                    <select name="currency" type="text" id="chosecurrency" class="form-control">
                       <option value="0">Select Currency</option>
                       <?php $obj->currency();?>
                     </select>
@@ -286,4 +286,18 @@ if(isset($_POST['sub']))
     </section>
     <!-- /.content -->
   </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js" integrity="sha512-rMGGF4wg1R73ehtnxXBt5mbUfN9JUJwbk21KMlnLZDJh7BkPmeovBuddZCENJddHYYMkCh9hPFnPmS9sspki8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css" integrity="sha512-yVvxUQV0QESBt1SyZbNJMAwyKvFTLMyXSyBHDO4BG5t7k/Lw34tyqlSDlKIrIENIzCl+RVUNjmCPG+V/GMesRw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script>
+    $("#choseshipper").chosen();
+    $("#choseclient").chosen();
+    $("#choseconsignee").chosen();
+    $("#chosepol").chosen();
+    $("#chosepod").chosen();
+    $("#chosecoloader").chosen();
+    $("#choseagent").chosen();
+    $("#chosecurrency").chosen();
+  </script>
+
   <?php include "./footer.php"; ?>

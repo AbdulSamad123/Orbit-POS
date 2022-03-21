@@ -45,12 +45,12 @@ $obj->con();
                 <tr>
                   <th>S.no</th>
                   <th>Booking No</th>
-                  <th>Mbl No</th>
                   <th>Hbl No</th>
+                  <th>Mbl No</th>
                   <th>Volume</th>
+                  <th>Gross Weight</th>
                   <th>Net Weight</th>
-                  <th>Action</th> 
-                  <th>others</th> 
+                  <th>Action</th>  
                 </tr>
                 </thead>
                 <tbody>

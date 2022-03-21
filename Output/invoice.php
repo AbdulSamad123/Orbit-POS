@@ -9,6 +9,55 @@ $mpdf = new \Mpdf\Mpdf([
     'format' => 'A4'
 ]);
 
+include "../connection.php";
+$obj=new functions();
+$obj->con();
+$conn = $_SESSION['conn'];
+$id = $_GET['id'];
+$select = "SELECT shipper.name,booking.vessel,booking.voyage,booking.roe,booking.container_number,booking.hbl,booking.volume,booking.gross_weight,booking.net_weight,booking.agreed_rate,booking.ocean_freight,booking.exwork,booking.bl,booking.do,booking.thc,booking.round_amount FROM shipper JOIN booking ON shipper.id = booking.shipper where booking.id='$id'";
+$result = mysqli_query($conn ,$select);
+if(mysqli_num_rows($result) > 0)
+            {
+                while($row = mysqli_fetch_array($result)){
+                     $shipper = $row['name'];
+                //   $consignee = $row['Consignee'];
+                //   $notify_party = $row['Notify_Party'];
+                //   $Pre_Carriage_by = $row['Pre_Carriage_by'];
+                //   $Place_of_receipt = $row['Place_of_receipt'];
+                //   $Vessel = $row['Vessel'];
+                //   $Voy_No = $row['Voy_No'];
+                //   $BL_No = $row['B/L_No'];
+                //   $Port_of_Loading = $row['Port_of_Loading'];
+                //   $Port_of_Discharge = $row['Port_of_Discharge'];                
+                //   $Place_of_Delievery = $row['Place_of_Delievery'];                
+                //   $Final_Destination = $row['Final_Destination'];                
+                //   $Container_No = $row['Container_No'];                
+                //   $Seal_No = $row['Seal_No'];                
+                //   $Marks = $row['Marks'];                
+                //   $Numbers = $row['Numbers'];                
+                //   $No_of_Container_or_Pkgs = $row['No_of_Container_or_Pkgs'];                
+                //   $gross_weight = $row['Gross_Weight'];                
+                //   $Measurments = $row['Measurments'];                
+                //   $Kind_of_Packages = $row['Kind_of_Packages'];                
+                //   $Description_of_Goods = $row['Description_of_Goods'];                
+                //   $Total_Number_of_Containers = $row['Total_Number_of_Containers'];                
+                //   $Merchant_Declared_Value = $row['Merchant_Declared_Value'];                
+                //   $Freight_and_Charges = $row['Freight_and_Charges'];                
+                //   $Revenue_Tons = $row['Revenue_Tons'];                
+                //   $Rate = $row['Rate'];                
+                //   $Per = $row['Per'];                
+                //   $Prepaid_1 = $row['Prepaid_1'];                
+                //   $Collect = $row['Collect'];                
+                //   $Exchange_Rate = $row['Exchange_Rate'];                
+                //   $Prepaid_2 = $row['Prepaid_2'];                
+                //   $Payable_at = $row['Payable_at'];    
+                //   $Total_Prepaid_in_local_Currency = $row['Total_Prepaid_in_local_Currency'];    
+                //   $No_of_Original = $row['No_of_Original_BsL'];    
+                //   $Place_of_issue = $row['place_of_issue'];    
+                //   $date_of_issue = $row['date_of_issue'];    
+                //   $As_Carrier = $row['As_Carrier'];
+
+
 $html = '
 	<!DOCTYPE html>
 <html>
@@ -31,7 +80,7 @@ p {
 
     <table border="0" style="border-collapse: collapse;" >
         <tr>
-            <td width="380" rowspan="3"><b>Client: Abc Traders.</b></td>
+            <td width="380" rowspan="3"><b>Client: '.$shipper.'</b></td>
             <td width="150" style="font-size:12px;border-right:none">Invoice No.</td>
             <td width="90" style="font-size:12px;border-left:none;border-right:none">IMP-00991 </td>
             <td width="180" style="font-size:12px;border-left:none">Date:</td>
@@ -54,7 +103,7 @@ p {
 
         <tr>
             <td>Vessel: OOCL sind V.111S</td>
-            <td style="font-size:12px;border-right:none">G. Weight: 27846.00  Kg.</td>
+            <td style="font-size:12px;border-right:none">G. Weight: 26442.00 kg</td>
             <td style="font-size:12px;border-left:none;" colspan="2">Net Weight: 26442.00 kg</td>
         </tr>
 
@@ -179,7 +228,7 @@ p {
 
 
 ';
-            
+}}           
 $mpdf-> writeHTML($html);
 $mpdf-> output();
 ?>

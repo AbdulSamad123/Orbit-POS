@@ -281,12 +281,12 @@ class functions
             echo '<tr>';            
             echo '<td>' . $i . '</td>';
             echo '<td>' . $row[0] . '</td>';
-            echo '<td>' . $row['mbl'] . '</td>';
+            echo '<td>' . $row[28] . '</td>';
             echo '<td>' . $row[29] . '</td>';
             echo '<td>' . $row[30] . '</td>';
+            echo '<td>' . $row[31] . '</td>';
             echo '<td>' . $row[32] . '</td>';
-            echo "<td class='text-warning'>" . '<a href="update_booking.php?id='.$row[0].'"><i class="fas fa-pen"></i> </a> | <a href="del_booking.php?id='.$row[0].'"> <i class="fas fa-trash"></i> </a>' . '</td>';
-            echo "<td class='text-warning'>" . '<a href="update_booking.php?id='.$row[0].'"><i class="fas fa-file-invoice"></i> </a> | <a href="del_booking.php?id='.$row[0].'"> <i class="fas fa-trash"></i> </a>' . '</td>';
+            echo "<td class='text-warning'>" . '<a href="update_booking.php?id='.$row[0].'"><i class="fas fa-pen"></i> </a> | <a href="del_booking.php?id='.$row[0].'"> <i class="fas fa-trash"></i> </a> | <a href="output/invoice.php?id='.$row[0].'"> <i class="fas fa-file-invoice"></i> </a>' . '</td>';
             echo '</tr>';
         }
     } 

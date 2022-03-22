@@ -4,7 +4,7 @@ $obj=new functions();
 $obj->con();
 if(isset($_POST['sub']))
 {
-	$obj->add_booking($_POST['shipper'],$_POST['client'],$_POST['consignee'],$_POST['pol'],$_POST['pod'],$_POST['cutt'],$_POST['etd'],$_POST['eta'],$_POST['vessel'],$_POST['voyage'],$_POST['coloader'],$_POST['agent'],$_POST['buying'],$_POST['selling'],$_POST['roe'],$_POST['currency'],$_POST['profit'],$_POST['mode'],$_POST['sales_person'],$_POST['yard'],$_POST['con_num'],$_POST['mbl_telex'],$_POST['hbl_telex'],$_POST['submission_manifest'],$_POST['arrival_notice'],$_POST['do'],$_POST['type'],$_POST['hbl_no'],$_POST['mbl_no'],$_POST['volume'],$_POST['gross'],$_POST['net'],$_POST['agreed_rate'],$_POST['exwork'],$_POST['of'],$_POST['bl'],$_POST['do_charges'],$_POST['thc'],$_POST['round'],$_POST['coloader_rate'],$_POST['dn'],$_POST['of_charges'],$_POST['agree_thc'],$_POST['doc_charges'],$_POST['netprofit']);
+	$obj->add_booking($_POST['shipper'],$_POST['client'],$_POST['consignee'],$_POST['pol'],$_POST['pod'],$_POST['cutt'],$_POST['etd'],$_POST['eta'],$_POST['vessel'],$_POST['voyage'],$_POST['commodity'],$_POST['packages'],$_POST['coloader'],$_POST['agent'],$_POST['buying'],$_POST['selling'],$_POST['roe'],$_POST['currency'],$_POST['profit'],$_POST['mode'],$_POST['sales_person'],$_POST['yard'],$_POST['con_num'],$_POST['mbl_telex'],$_POST['hbl_telex'],$_POST['submission_manifest'],$_POST['arrival_notice'],$_POST['do'],$_POST['type'],$_POST['hbl_no'],$_POST['mbl_no'],$_POST['volume'],$_POST['gross'],$_POST['net'],$_POST['agreed_rate'],$_POST['exwork'],$_POST['of'],$_POST['bl'],$_POST['do_charges'],$_POST['thc'],$_POST['round'],$_POST['coloader_rate'],$_POST['dn'],$_POST['of_charges'],$_POST['agree_thc'],$_POST['doc_charges'],$_POST['netprofit']);
 }
 ?>
 <!DOCTYPE html>
@@ -103,6 +103,14 @@ if(isset($_POST['sub']))
                   <div class="form-group">
                     <label>Voyage</label>
                     <input name="voyage" type="text" class="form-control" placeholder="Enter voyage">
+                  </div>
+                  <div class="form-group">
+                    <label>Commodity</label>
+                    <input name="commodity" type="text" class="form-control" placeholder="Enter Commodity">
+                  </div>
+                  <div class="form-group">
+                    <label>Packages</label>
+                    <input name="packages" type="text" class="form-control" placeholder="Enter Packages">
                   </div>
                   <div class="form-group">
                     <label for="cars">Co Loader</label>

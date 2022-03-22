@@ -77,22 +77,22 @@ class functions
         }
     }
 
-    function add_pol($name)
+    function add_pol($pol_name)
     {
         $conn = $_SESSION['conn'];
         $id="";
-        $insert = mysqli_query( $conn, "insert into pol values('$id','$name');" ) or die(mysql_error());
+        $insert = mysqli_query( $conn, "insert into pol values('$id','$pol_name');" ) or die(mysql_error());
         if ( $insert )
         {
             echo "<script> alert('Pol Added'); </script>";
         }
     }
 
-    function add_pod($name)
+    function add_pod($pod_name)
     {
         $conn = $_SESSION['conn'];
         $id="";
-        $insert = mysqli_query( $conn, "insert into pod values('$id','$name');" ) or die(mysql_error());
+        $insert = mysqli_query( $conn, "insert into pod values('$id','pod_$name');" ) or die(mysql_error());
         if ( $insert )
         {
             echo "<script> alert('Pod Added'); </script>";
@@ -110,11 +110,11 @@ class functions
         }
     }
     
-    function add_booking($shipper,$client,$consignee,$pol,$pod,$cuttof,$eta,$etd,$vessel,$voyage,$coloader,$agent,$buying,$selling,$roe,$currency,$profit,$mode,$sales_person,$destufing_yard,$container_number,$mbl_status,$hbl_status,$submission_manifest,$arrival_notice,$collection_do,$type,$hbl,$mbl,$volume,$gross_weight,$net_weight,$agreed_rate,$exwork,$ocean_freight,$bl,$do,$thc,$round_amount,$agree_rate_coloader,$dn_charges,$of_charges,$thc_coloader,$docs_charges,$net_profit)
+    function add_booking($shipper,$client,$consignee,$pol,$pod,$cuttof,$eta,$etd,$vessel,$voyage,$commodity,$packages,$coloader,$agent,$buying,$selling,$roe,$currency,$profit,$mode,$sales_person,$destufing_yard,$container_number,$mbl_status,$hbl_status,$submission_manifest,$arrival_notice,$collection_do,$type,$hbl,$mbl,$volume,$gross_weight,$net_weight,$agreed_rate,$exwork,$ocean_freight,$bl,$do,$thc,$round_amount,$agree_rate_coloader,$dn_charges,$of_charges,$thc_coloader,$docs_charges,$net_profit)
     {
         $conn = $_SESSION['conn'];
         $id="";
-        $insert = mysqli_query( $conn, "insert into booking values('$id','$shipper','$client','$consignee','$pol','$pod','$cuttof','$eta','$etd','$vessel','$voyage','$coloader','$agent','$buying','$selling','$roe','$currency','$profit','$mode','$sales_person','$destufing_yard','$container_number','$mbl_status','$hbl_status','$submission_manifest','$arrival_notice','$collection_do','$type','$hbl','$mbl','$volume','$gross_weight','$net_weight','$agreed_rate','$exwork','$ocean_freight','$bl','$do','$thc','$round_amount','$agree_rate_coloader','$dn_charges','$of_charges','$thc_coloader','$docs_charges','$net_profit');" ) or die(mysql_error());
+        $insert = mysqli_query( $conn, "insert into booking values('$id','$shipper','$client','$consignee','$pol','$pod','$cuttof','$eta','$etd','$vessel','$voyage','$commodity','$packages','$coloader','$agent','$buying','$selling','$roe','$currency','$profit','$mode','$sales_person','$destufing_yard','$container_number','$mbl_status','$hbl_status','$submission_manifest','$arrival_notice','$collection_do','$type','$hbl','$mbl','$volume','$gross_weight','$net_weight','$agreed_rate','$exwork','$ocean_freight','$bl','$do','$thc','$round_amount','$agree_rate_coloader','$dn_charges','$of_charges','$thc_coloader','$docs_charges','$net_profit');" ) or die(mysql_error());
         if ( $insert )
         {
             echo "<script> alert('Booking Added'); </script>";
@@ -594,12 +594,12 @@ class functions
                 
     }
 
-    function update_pol($name)
+    function update_pol($pol_name)
     {
         $conn = $_SESSION['conn'];
         $id= $_GET['id'];
-        $name = $_POST['txtname'];
-        $insert = mysqli_query( $conn, "update pol set name='".$name."' where id='".$id."'" );
+        $pol_name = $_POST['txtname'];
+        $insert = mysqli_query( $conn, "update pol set pol_name='".$pol_name."' where id='".$id."'" );
         if ($insert)
         {
             echo "<script> alert('Data Updated');</script>";
@@ -608,12 +608,12 @@ class functions
                 
     }
 
-    function update_pod($name)
+    function update_pod($pod_name)
     {
         $conn = $_SESSION['conn'];
         $id= $_GET['id'];
-        $name = $_POST['txtname'];
-        $insert = mysqli_query( $conn, "update pod set name='".$name."' where id='".$id."'" );
+        $pod_name = $_POST['txtname'];
+        $insert = mysqli_query( $conn, "update pod set pod_name='".$pod_name."' where id='".$id."'" );
         if ($insert)
         {
             echo "<script> alert('Data Updated');</script>";
@@ -650,6 +650,8 @@ class functions
         $etd=$_POST['etd'];
         $vessel=$_POST['vessel'];
         $voyage=$_POST['voyage'];
+        $commodity=$_POST['commodity'];
+        $packages=$_POST['packages'];
         $coloader=$_POST['coloader'];
         $agent=$_POST['agent'];
         $buying=$_POST['buying'];
@@ -685,7 +687,7 @@ class functions
         $thc_coloader=$_POST['thc_coloader'];
         $docs_charges=$_POST['docs_charges'];
         $net_profit=$_POST['net_profit'];
-        $insert = mysqli_query( $conn, "update booking set shipper='".$shipper."', client='".$client."', consignee='".$consignee."',pol='".$pol."',pod='".$pod."',cuttof='".$cuttof."',eta='".$eta."', etd='".$etd."',vessel='".$vessel."',voyage='".$voyage."',coloader='".$coloader."', agent='".$agent."', buying='".$buying."',selling='".$selling."',roe='".$roe."',currency='".$currency."', profit='".$profit."', mode='".$mode."',sales_person='".$sales_person."',destufing_yard='".$destufing_yard."',container_number='".$container_number."', mbl_status='".$mbl_status."', hbl_status='".$hbl_status."',submission_manifest='".$submission_manifest."',arival_notice='".$arival_notice."' ,collection_do='".$collection_do."', type='".$type."', hbl='".$hbl."',mbl='".$mbl."',volume='".$volume."' ,gross_weight='".$gross_weight."', net_weight='".$net_weight."', agreed_rate='".$agreed_rate."',exwork='".$exwork."',ocean_freight='".$ocean_freight."',bl='".$bl."', do='".$do."', thc='".$thc."',round_amount='".$round_amount."',agree_rate_coloader='".$agree_rate_coloader."',dn_charges='".$dn_charges."',of_charges='".$of_charges."', thc_coloader='".$thc_coloader."',docs_charges='".$docs_charges."',net_profit='".$net_profit."' where id='".$id."'");
+        $insert = mysqli_query( $conn, "update booking set shipper='".$shipper."', client='".$client."', consignee='".$consignee."',pol='".$pol."',pod='".$pod."',cuttof='".$cuttof."',eta='".$eta."', etd='".$etd."',vessel='".$vessel."',voyage='".$voyage."',commodity='".$commodity."',packages='".$packages."',coloader='".$coloader."', agent='".$agent."', buying='".$buying."',selling='".$selling."',roe='".$roe."',currency='".$currency."', profit='".$profit."', mode='".$mode."',sales_person='".$sales_person."',destufing_yard='".$destufing_yard."',container_number='".$container_number."', mbl_status='".$mbl_status."', hbl_status='".$hbl_status."',submission_manifest='".$submission_manifest."',arival_notice='".$arival_notice."' ,collection_do='".$collection_do."', type='".$type."', hbl='".$hbl."',mbl='".$mbl."',volume='".$volume."' ,gross_weight='".$gross_weight."', net_weight='".$net_weight."', agreed_rate='".$agreed_rate."',exwork='".$exwork."',ocean_freight='".$ocean_freight."',bl='".$bl."', do='".$do."', thc='".$thc."',round_amount='".$round_amount."',agree_rate_coloader='".$agree_rate_coloader."',dn_charges='".$dn_charges."',of_charges='".$of_charges."', thc_coloader='".$thc_coloader."',docs_charges='".$docs_charges."',net_profit='".$net_profit."' where id='".$id."'");
         if ($insert)
         {
             echo "<script> alert('Data Updated');</script>";

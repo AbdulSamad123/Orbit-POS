@@ -14,49 +14,30 @@ $obj=new functions();
 $obj->con();
 $conn = $_SESSION['conn'];
 $id = $_GET['id'];
-$select = "SELECT shipper.name,booking.vessel,booking.voyage,booking.roe,booking.container_number,booking.hbl,booking.volume,booking.gross_weight,booking.net_weight,booking.agreed_rate,booking.ocean_freight,booking.exwork,booking.bl,booking.do,booking.thc,booking.round_amount FROM shipper JOIN booking ON shipper.id = booking.shipper where booking.id='$id'";
+$select = "SELECT shipper.name,pod.pod_name,booking.vessel,booking.voyage,booking.commodity,booking.packages,booking.roe,booking.container_number,booking.hbl,booking.volume,booking.gross_weight,booking.net_weight,booking.agreed_rate,booking.ocean_freight,booking.exwork,booking.bl,booking.do,booking.thc,booking.round_amount FROM booking JOIN shipper ON shipper.id = booking.shipper join pod on pod.id = booking.pod where booking.id='$id'";
 $result = mysqli_query($conn ,$select);
 if(mysqli_num_rows($result) > 0)
             {
                 while($row = mysqli_fetch_array($result)){
-                     $shipper = $row['name'];
-                //   $consignee = $row['Consignee'];
-                //   $notify_party = $row['Notify_Party'];
-                //   $Pre_Carriage_by = $row['Pre_Carriage_by'];
-                //   $Place_of_receipt = $row['Place_of_receipt'];
-                //   $Vessel = $row['Vessel'];
-                //   $Voy_No = $row['Voy_No'];
-                //   $BL_No = $row['B/L_No'];
-                //   $Port_of_Loading = $row['Port_of_Loading'];
-                //   $Port_of_Discharge = $row['Port_of_Discharge'];                
-                //   $Place_of_Delievery = $row['Place_of_Delievery'];                
-                //   $Final_Destination = $row['Final_Destination'];                
-                //   $Container_No = $row['Container_No'];                
-                //   $Seal_No = $row['Seal_No'];                
-                //   $Marks = $row['Marks'];                
-                //   $Numbers = $row['Numbers'];                
-                //   $No_of_Container_or_Pkgs = $row['No_of_Container_or_Pkgs'];                
-                //   $gross_weight = $row['Gross_Weight'];                
-                //   $Measurments = $row['Measurments'];                
-                //   $Kind_of_Packages = $row['Kind_of_Packages'];                
-                //   $Description_of_Goods = $row['Description_of_Goods'];                
-                //   $Total_Number_of_Containers = $row['Total_Number_of_Containers'];                
-                //   $Merchant_Declared_Value = $row['Merchant_Declared_Value'];                
-                //   $Freight_and_Charges = $row['Freight_and_Charges'];                
-                //   $Revenue_Tons = $row['Revenue_Tons'];                
-                //   $Rate = $row['Rate'];                
-                //   $Per = $row['Per'];                
-                //   $Prepaid_1 = $row['Prepaid_1'];                
-                //   $Collect = $row['Collect'];                
-                //   $Exchange_Rate = $row['Exchange_Rate'];                
-                //   $Prepaid_2 = $row['Prepaid_2'];                
-                //   $Payable_at = $row['Payable_at'];    
-                //   $Total_Prepaid_in_local_Currency = $row['Total_Prepaid_in_local_Currency'];    
-                //   $No_of_Original = $row['No_of_Original_BsL'];    
-                //   $Place_of_issue = $row['place_of_issue'];    
-                //   $date_of_issue = $row['date_of_issue'];    
-                //   $As_Carrier = $row['As_Carrier'];
-
+                    $shipper = $row['name'];
+                    $pod = $row['pod_name'];
+                    $vessel = $row['vessel'];
+                    $voyage = $row['voyage'];
+                    $commodity = $row['commodity'];
+                    $packages = $row['packages'];
+                    $roe = $row['roe'];
+                    $container_number = $row['container_number'];
+                    $hbl = $row['hbl'];
+                    $volume = $row['volume'];
+                    $gross_weight = $row['gross_weight'];
+                    $net_weight= $row['net_weight'];
+                    $agreed_rate = $row['agreed_rate'];                
+                    $ocean_freight = $row['ocean_freight'];                
+                    $exwork = $row['exwork'];                
+                    $bl = $row['bl'];                
+                    $do = $row['do'];                
+                    $thc = $row['thc'];                
+                    $round_amount = $row['round_amount'];                
 
 $html = '
 	<!DOCTYPE html>
@@ -96,34 +77,34 @@ p {
         </tr>
 
         <tr>
-            <td>BL# Y21042090 </td>
+            <td>BL# '.$hbl.' </td>
             <td style="font-size:12px;border-right:none">Index No.</td>
             <td style="font-size:12px;border-left:none;" colspan="2">Volume:</td>
         </tr>
 
         <tr>
-            <td>Vessel: OOCL sind V.111S</td>
-            <td style="font-size:12px;border-right:none">G. Weight: 26442.00 kg</td>
-            <td style="font-size:12px;border-left:none;" colspan="2">Net Weight: 26442.00 kg</td>
+            <td>Vessel: '.$vessel.'-'.$voyage.'</td>
+            <td style="font-size:12px;border-right:none">G. Weight: '.$gross_weight.'</td>
+            <td style="font-size:12px;border-left:none;" colspan="2">Net Weight: '.$net_weight.'</td>
         </tr>
 
         <tr>
 
-            <td>Commodity : LS</td>
-            <td style="font-size:12px;" colspan="3">Origin: XINGANG</td>
+            <td>Commodity : '.$commodity.'</td>
+            <td style="font-size:15px;" colspan="3">Origin: '.$pod.'</td>
 
         </tr>
 
         <tr>
-            <td>Package: 1170 CARTONS</td>
+            <td>Package: '.$packages.'</td>
             <td style="font-size:12px;" colspan="3">Discharge: KARACHI</td>
         </tr>
 
         <tr>
-            <td>Cont No. BMOU2790</td>
+            <td>Cont No. '.$container_number.'</td>
             <td style="font-size:12px;border-right:none">Freight Status</td>
             <td style="font-size:12px;border-left:none;border-right:none" >Prepaid</td>
-            <td style="font-size:12px;border-left:none;" >Exch.Rate: 164.50</td>
+            <td style="font-size:12px;border-left:none;" >Exch.Rate: '.$roe.'</td>
         </tr>
 
     </table> 
@@ -139,43 +120,43 @@ p {
         <tr>
             <td width="90" align="right" style="font-size:12px">1</td>
             <td width="370" align="left" style="font-size:12px">OCEAN FREIGHT</td>
-            <td width="130" align="center" style="font-size:12px">2575 USD</td>
+            <td width="130" align="center" style="font-size:12px">'.$ocean_freight.'</td>
             <td width="130" align="right" style="font-size:12px">423588.00</td>
         </tr>
 
         <tr>
             <td width="90" align="right" style="font-size:12px">2</td>
-            <td width="370" align="left" style="font-size:12px">HANDLING CHARGES </td>
-            <td width="130" align="center" style="font-size:12px"></td>
+            <td width="370" align="left" style="font-size:12px">Exwork </td>
+            <td width="130" align="center" style="font-size:12px">'.$exwork.'</td>
             <td width="130" align="right" style="font-size:12px"></td>
         </tr>
 
         <tr>
-            <td width="90" height="18" align="right" style="font-size:12px"></td>
-            <td width="370" align="left" style="font-size:12px"></td>
-            <td width="130" align="center" style="font-size:12px"></td>
+            <td width="90" height="18" align="right" style="font-size:12px">3</td>
+            <td width="370" align="left" style="font-size:12px">Bl Charges</td>
+            <td width="130" align="center" style="font-size:12px">'.$bl.'</td>
             <td width="130" align="right" style="font-size:12px"></td>
         </tr>
 
         <tr>
-            <td width="90" height="18" align="right" style="font-size:12px"></td>
-            <td width="370" align="left" style="font-size:12px"></td>
-            <td width="130" align="center" style="font-size:12px"></td>
+            <td width="90" height="18" align="right" style="font-size:12px">4</td>
+            <td width="370" align="left" style="font-size:12px">DO Charges</td>
+            <td width="130" align="center" style="font-size:12px">'.$do.'</td>
             <td width="130" align="right" style="font-size:12px"></td>
         </tr>
 
         <tr>
-            <td width="90" height="18" align="right" style="font-size:12px"></td>
-            <td width="370" align="left" style="font-size:12px"></td>
-            <td width="130" align="center" style="font-size:12px"></td>
+            <td width="90" height="18" align="right" style="font-size:12px">5</td>
+            <td width="370" align="left" style="font-size:12px">Thc</td>
+            <td width="130" align="center" style="font-size:12px">'.$thc.'</td>
             <td width="130" align="right" style="font-size:12px"></td>
         </tr>
 
         <tr>
-            <td width="90" height="18" align="right" style="font-size:12px"></td>
-            <td width="370" align="left" style="font-size:12px"></td>
+            <td width="90" height="18" align="right" style="font-size:12px">6</td>
+            <td width="370" align="left" style="font-size:12px">Round amount</td>
             <td width="130" align="center" style="font-size:12px"></td>
-            <td width="130" align="right" style="font-size:12px"></td>
+            <td width="130" align="right" style="font-size:12px">'.$round_amount.'</td>
         </tr>
 
         <tr>

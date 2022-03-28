@@ -696,7 +696,109 @@ class functions
                 
     }
 
-    
+    function shipper_Count()
+    {
+        $conn=$_SESSION['conn'];
+        $insert=mysqli_query($conn,"select * from shipper");
+        $num=mysqli_num_rows($insert);
+        $count=0;
+        for($i=0; $i<$num; $i++)
+        {
+            $count=$count+1;
+        }
+        echo $count;
+    } 
 
- }
+    function agent_Count()
+    {
+        $conn=$_SESSION['conn'];
+        $insert=mysqli_query($conn,"select * from agent");
+        $num=mysqli_num_rows($insert);
+        $count=0;
+        for($i=0; $i<$num; $i++)
+        {
+            $count=$count+1;
+        }
+        echo $count;
+    }
+
+    function client_Count()
+    {
+        $conn=$_SESSION['conn'];
+        $insert=mysqli_query($conn,"select * from client");
+        $num=mysqli_num_rows($insert);
+        $count=0;
+        for($i=0; $i<$num; $i++)
+        {
+            $count=$count+1;
+        }
+        echo $count;
+    }
+
+    function consignee_Count()
+    {
+        $conn=$_SESSION['conn'];
+        $insert=mysqli_query($conn,"select * from consignee");
+        $num=mysqli_num_rows($insert);
+        $count=0;
+        for($i=0; $i<$num; $i++)
+        {
+            $count=$count+1;
+        }
+        echo $count;
+    }
+
+    function coloader_Count()
+    {
+        $conn=$_SESSION['conn'];
+        $insert=mysqli_query($conn,"select * from coloader");
+        $num=mysqli_num_rows($insert);
+        $count=0;
+        for($i=0; $i<$num; $i++)
+        {
+            $count=$count+1;
+        }
+        echo $count;
+    }
+
+    function currency_Count()
+    {
+        $conn=$_SESSION['conn'];
+        $insert=mysqli_query($conn,"select * from currency");
+        $num=mysqli_num_rows($insert);
+        $count=0;
+        for($i=0; $i<$num; $i++)
+        {
+            $count=$count+1;
+        }
+        echo $count;
+    }
+
+    function pol_Count()
+    {
+        $conn=$_SESSION['conn'];
+        $insert=mysqli_query($conn,"select * from pol");
+        $num=mysqli_num_rows($insert);
+        $count=0;
+        for($i=0; $i<$num; $i++)
+        {
+            $count=$count+1;
+        }
+        echo $count;
+    }
+
+    function pod_Count()
+    {
+        $conn=$_SESSION['conn'];
+        $insert=mysqli_query($conn,"select * from pod");
+        $num=mysqli_num_rows($insert);
+        $count=0;
+        for($i=0; $i<$num; $i++)
+        {
+            $count=$count+1;
+        }
+        echo $count;
+    }
+
+}
 ?>

@@ -27,7 +27,7 @@ if(isset($_POST['sub']))
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
                 <a href="./viewclient.php" class="breadcrumb-item">
-                    <i class="far fa-eye nav-icon"> view Client</i>                    
+                    <i class="far fa-eye nav-icon"> View Client</i>                    
                 </a>
             </ol>
           </div>

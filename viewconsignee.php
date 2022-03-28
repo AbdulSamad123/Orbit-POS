@@ -35,7 +35,7 @@ $obj->con();
       <div class="row">
         <div class="col-12">
           <div class="card">
-            <div class="card-header">
+            <div class="card-header" style="overflow-x:auto;">
               <h3 class="card-title">Records of data</h3>
             </div>
             <!-- /.card-header -->
